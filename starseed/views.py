@@ -2,7 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
 
-def home(request):
-    now = datetime.datetime.now()
-    html = "<html><body>It is now %s.</body></html>" % now
-    return HttpResponse(html)
+from django.views.generic import TemplateView
+
+class HomeView(TemplateView):
+    template_name = "index.html"
+
+class ProjectView(TemplateView):
+    template_name = "project.html"
+    
+
+#signup
+#invte team members
+#
