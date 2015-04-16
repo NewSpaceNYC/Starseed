@@ -7,8 +7,10 @@ We use ZenHub.io's Chrome Extension for GitHub.com for our Agile board.
 
 ###  Today we'll focus on:
    - Finalizing the MVP scope of the project, see ROADMAP.md
-   - Get some models coded (in progress) Mike / Sean
-   - Get some views coded (in progress) Yusuf / Sean
+   - Get MVP models coded (in progress) Mike / Sean
+   - Get MVP views coded (in progress) Yusuf / Sean
+   - 
+   
 
 
 ----done---

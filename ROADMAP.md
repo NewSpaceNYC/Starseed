@@ -4,12 +4,16 @@ From Google Doc Brainstorm: http://goo.gl/WTH2tm
  - companies that can opt-in to the monthly milestone prize via equity or cash buy-in.
  - So for example, companies that haven’t reached a milestone of 10k in sales can opt-in for the 10k milestone leaderboard prize for that month and every month until they make that milestone. 
 
+
 ### equity deals
  - equity can be sold, traded
   - for example, let’s say a company wants to sell some of it’s shares, it does so on the platform either by selling unvested shares or making a board-member decision to dilute shares and sell them. 
    this way you could also offer a kickstarter and/or Gust type fundraising campaign where people can contribute to the project simply with their money contribution(s).
+ - equity for ideamen
+  - Submit ideas to Starseed and let the community manage it's development
  - No equity down
   - Use the platform for free, no commitments, insert cash or equity per bounty as needed. We act as the trusty escrow to your bounty hunters. 
+
 
 ### perfect for hackathons
  - I read a quote on the site saying it was like a on-going hackathon.
@@ -24,17 +28,18 @@ From Google Doc Brainstorm: http://goo.gl/WTH2tm
    - This could be for any teaching class potentially (at certain levels of designated difficulty). No need to just be in a hackathon.
 
 
-
 ### whitelabel & so much open
  - White Label, 
   - cause @codedoc said so, and it is a good idea.  
   - Open-Source, like down to what kind of toilet paper we use...
   - this is a given.
 
-### cash bounties too
- - set a cash value for bounties and just deposit the molah into our escrow so people have the trusties.
+
+### cash bounties too (use CoderBounty API)
+ - set a cash value for bounties and just deposit the moolah into our escrow so people have the trusties.
  - mix and match, let users decided if they just want the cash or if they also want some equity, or just equity.
  - Whenever people have a choice, they feel more comfortable. It’s real science somewhere, look it up. 
+
 
 ### collaboration % bounty sharing
  - We want to live-code all the things so,
