@@ -17,63 +17,54 @@ from django.db import models
 # Tip - https://github.com/assemblymade/meta/blob/master/db/schema.rb#L896
 # Subscriber - https://github.com/assemblymade/meta/blob/master/db/schema.rb#L868
 
-# User - in Django this these extra things can go into UserProfile
-"""
-    t.string   "name",                              limit: 255
-    t.string   "customer_id",                       limit: 255
-    t.boolean  "is_staff",                                      default: false,   null: false
-    t.string   "email",                             limit: 255,                   null: false
-    t.string   "encrypted_password",                limit: 255
-    t.string   "reset_password_token",              limit: 255
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                                 default: 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "confirmation_sent_at"
-    t.datetime "confirmed_at"
-    t.string   "confirmation_token",                limit: 255
-    t.string   "unconfirmed_email",                 limit: 255
-    t.datetime "email_failed_at"
-    t.string   "facebook_uid",                      limit: 255
-    t.text     "location"
-    t.datetime "last_request_at"
-    t.string   "avatar_url",                        limit: 255
-    t.text     "extra_data"
-    t.string   "authentication_token",              limit: 255
-    t.text     "bio"
-    t.string   "archetype",                         limit: 255
-    t.string   "username",                          limit: 255,                   null: false
-    t.string   "mail_preference",                   limit: 255, default: "daily", null: false
-    t.integer  "github_uid"
-    t.string   "github_login",                      limit: 255
-    t.string   "payment_option",                    limit: 255
-    t.string   "paypal_email",                      limit: 255
-    t.string   "bank_account_id",                   limit: 255
-    t.string   "bank_name",                         limit: 255
-    t.string   "bank_last4",                        limit: 255
-    t.string   "address_line1",                     limit: 255
-    t.string   "address_line2",                     limit: 255
-    t.string   "address_city",                      limit: 255
-    t.string   "address_state",                     limit: 255
-    t.string   "address_zip",                       limit: 255
-    t.string   "address_country",                   limit: 255
-    t.datetime "personal_email_sent_on"
-    t.text     "twitter_uid"
-    t.text     "twitter_nickname"
-    t.uuid     "recent_product_ids",                                                           array: true
-    t.string   "remember_token",     
- 
-   """
-#django has a built in User model
-#class User(models.Model):
-#    username = models.CharField(max_length=255)
-#    first_name = models.CharField(max_length=30)
-#    last_name = models.CharField(max_length=30)
+# User - in Django this these extra things can go into "UserProfile" instead of just "User"
+# Users - https://github.com/assemblymade/meta/blob/master/db/schema.rb#L1032
+class UserProfile(models.Model):
+    username = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    is_staff = models.BooleanField(default='false')
+    email = models.EmailField(max_length=255)
+    encrypted_password = models.CharField(max_length=255)
+    reset_password_token = models.CharField(max_length=255)
+    reset_password_sent_at = models.DateField()
+    remember_created_at = models.DateField()
+    sign_in_count = models.IntegerField()
+    current_sign_in_at = models.DateField()
+    last_sign_in_at = models.DateField(max_length=255)
+    current_sign_in_ip = models.GenericIPAddressField()
+    last_sign_in_ip = models.GenericIPAddressField()
+    created_at = models.DateField()
+    updated_at = models.DateField(max_length=255)
+    confirmation_sent_at = models.DateField()
+    confirmed_at = models.DateField()
+    confirmation_token = models.CharField(max_length=255)
+    unconfirmed_email = models.CharField(max_length=255)
+    email_failed_at = models.DateField()
+    facebook_uid = models.CharField(max_length=255)
+    location = models.TextField()
+    avatar_url = models.CharField(max_length=255)
+    authentication_token = models.TextField()
+    bio = models.TextField()
+    archetype = models.CharField(max_length=255)
+    username = models.CharField(max_length=255)
+    mail_preference = models.CharField(max_length=255)
+    github_uid = models.IntegerField()
+    github_login = models.CharField(max_length=255)
+    payment_option = models.CharField(max_length=255)
+    paypal_email = models.CharField(max_length=255)
+    bank_account_id = models.CharField(max_length=255)
+    bank_name = models.CharField(max_length=255)
+    bank_last4 = models.CharField(max_length=255)
+    address_line1 = models.CharField(max_length=255)
+    address_line2 = models.CharField(max_length=255)
+    address_city = models.CharField(max_length=255)
+    address_state = models.CharField(max_length=255)
+    address_zip = models.CharField(max_length=255)
+    address_country = models.CharField(max_length=255)
+    personal_email_sent_on = models.DateField()
+    twitter_uid = models.TextField()
+    twitter_nickname = models.TextField()
 
 # Product https://github.com/assemblymade/meta/blob/master/db/schema.rb#L708
 class Product(models.Model):
