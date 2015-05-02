@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/NewSpaceNYC/Starseed.png?label=ready&title=Ready)](https://waffle.io/NewSpaceNYC/Starseed)
 # Welcome to the StarSeed project.
 https://github.com/NewSpaceNYC/starseed.git
 
