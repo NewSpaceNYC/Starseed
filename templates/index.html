@@ -1,9 +1,27 @@
 {% extends "base.html" %}
+
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 {% load staticfiles %}
 
-{% block content %} 
-<img src="{% static "logo.png" %}">
-<a href="...">Sign Up</a>
+{% block content %}
+<div class="row" style="text-align:center;">
+
+	<div class="col-md-12">
+
+	<img src="{% static "logo.png" %}">
+
+	{% buttons %}
+		<button type="submit" class="btn btn-primary">
+      		{% bootstrap_icon "star" %} Sign Up
+    	</button>
+	{% endbuttons %}
+	</div>
+</div>
 {% endblock %}
 
 
