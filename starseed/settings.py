@@ -124,7 +124,7 @@ BOOTSTRAP3 = {
     'javascript_in_head': False,
 
     # Include jQuery with Bootstrap JavaScript (affects django-bootstrap3 template tags)
-    'include_jquery': False,
+    'include_jquery': True,
 
     # Label class to use in horizontal forms
     'horizontal_label_class': 'col-md-3',

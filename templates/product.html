@@ -1,9 +1,20 @@
 {% extends "base.html"%}
+
 {% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 {% load staticfiles %}
 {% block content %}
+<div class="row">
+	<div class="col-md-12">
 <img src="{% static "logo.png" %}">
 {% for project in object_list %}
    <h2> i dont know what to display here XD</h2>
 {% endfor %}
+	</div>
+</div>
+
 {% endblock %}
