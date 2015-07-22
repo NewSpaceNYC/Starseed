@@ -1,6 +1,10 @@
-{% extends "base.html" %}
+{% extends "base.html"%}
 
 {% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 
 {% load staticfiles %}
 
@@ -49,5 +53,4 @@
 </br></br>
 </div>
 {% endblock %}
-
 
