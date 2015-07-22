@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+
+{% load staticfiles %}
+
+{% block content %}
+<div class="row" style="text-align:center;">
+</br>
+<div class="home-card dashboard-card">
+</br>
+
+<video autoplay id="bgvid">
+<source src="/static/video.mp4" type="video/mp4">
+</video>
+
+	<a href="/"><img src="{% static "logo-trans.png" %}"></a>
+	</br></br>
+	<p class="slogan-large">Dashboard</p>
+</br>
+<div style="text-align:left; width:auto; margin:auto;">
+ 
+<div class="CSSTableGenerator">
+    Products
+    <table >
+        <tr>
+            <td>
+                Product Name
+            </td>
+            <td >
+                Partners
+            </td>
+            <td>
+                Earning
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <a href="/moonpie">Moonpie</a>
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                $0
+            </td>
+        </tr>
+        <tr>
+            <td >
+                RocketStar
+            </td>
+            <td>
+                5
+            </td>
+            <td>
+                $450,00
+            </td>
+        </tr>
+        <tr>
+            <td >
+                Ragnarock
+            </td>
+            <td>
+                29
+            </td>
+            <td>
+                $25
+            </td>
+        </tr>
+        <tr>
+            <td >
+                Team Indus
+            </td>
+            <td>
+                300
+            </td>
+            <td>
+                $1,000,000
+            </td>
+        </tr>
+    </table>
+</div> <!-- .CSSTableGenerator end -->
+    
+<div class ="CSSTableGenerator2">
+    <span class="dashboard-activity-label">Activity</span>
+    <img src="{% static "activity.png" %}" alt="Activity Streams Example">
+</div>
+
+    </br>
+    
+    </div>
+    
+    </br></br></br></br>
+    
+    <table class="pure-table dashboard-bounties-table">
+    <thead>
+        <tr>
+            <th class="bounties-label">Bounties</th>
+            <th></th>
+            <th class="seeds-label">Seeds</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td><i class="icon-user"></i></td>
+            <td>Take Starseed mockups to painted designs</td>
+            <td>100k</td>
+        </tr>
+
+        <tr>
+            <td><i class="icon-user"></i></td>
+            <td>Win TechCrunch by creating Starseed</td>
+            <td>50k</td>
+        </tr>
+
+        <tr>
+            <td><i class="icon-user"></i></td>
+            <td>Win TechCrunch by creating Starseed</td>
+            <td>50k</td>
+        </tr>
+    </tbody>
+</table>
+    
+    </div> <!-- .dashboard-card end -->
+</div>
+{% endblock %}
+
+

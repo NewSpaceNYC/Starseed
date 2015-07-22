@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+
+{% load staticfiles %}
+
+{% block content %}
+  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+  <script src="/static/script.js"></script>
+  <link rel="stylesheet" href="/static/styles.css">
+<div class="row" style="text-align:center;">
+</br>
+<div class="home-card dashboard-card">
+</br>
+
+<video autoplay id="bgvid">
+<source src="/static/video.mp4" type="video/mp4">
+</video>
+
+	<a href="/"><img src="{% static "logo-trans.png" %}"></a>
+	</br></br>
+	<p class="slogan-large">Moonpie - About</p>
+<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='/moonpie'>About</a></li>
+   <li><a href='/bounties'>Bounties</a></li>
+   <li><a href='/partners'>Partners</a></li>
+   <li><a href='/financials'>Financials</a></li>
+</ul>
+</div>
+</br>
+<div style="text-align:left; width:auto; margin:auto;">
+ 
+ <iframe width="400" height="225" src="https://www.youtube.com/embed/TQ6tZtGrShg" frameborder="0" allowfullscreen></iframe>
+ </div> <!-- .CSSTableGenerator end -->
+    
+<div class ="CSSTableGenerator2">
+    <span class="dashboard-label">Activity</span>
+    <img src="{% static "activity.png" %}" alt="Activity Streams Example">
+</div>
+
+    </br>
+    
+    </div>
+    
+
+    </div>
+</div>
+{% endblock %}
+
+

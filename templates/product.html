@@ -1,9 +1,53 @@
-{% extends "base.html"%}
+{% extends "base.html" %}
+
 {% load bootstrap3 %}
+
 {% load staticfiles %}
+
 {% block content %}
-<img src="{% static "logo.png" %}">
-{% for project in object_list %}
-   <h2> i dont know what to display here XD</h2>
-{% endfor %}
+<div class="row" style="text-align:center;">
+</br>
+<div class="home-card">
+</br>
+
+<video autoplay id="bgvid">
+<source src="/static/video.mp4" type="video/mp4">
+</video>
+
+	<a href="/"><img src="{% static "logo-trans.png" %}"></a>
+	</br></br>
+	<p class="slogan-large">Start a Product.</p>
+</br>
+<div style="text-align:left; width:300px; margin:auto;">
+    
+	<p class="slogan">Name:</p>
+	<p>What is the name of your product:</p>
+	<input name="name" class="inputbox">
+</br></br>
+	<p class="slogan">5 word pitch:</p>
+	<p>Descirbe your product in 5 words or less:</p>
+	<input name="pitch" class="inputbox">
+</br>	</br>
+	<p class="slogan">Description:</p>
+	<p>Tell us about your product, what is it solving:</p>
+	<textarea class="inputbox tarea"></textarea>
+</br></br>
+<p class="slogan">Ownership:</p>
+	<p>you will start off with 100% of the ownership of this product. You will be able to distribute ownership to contributors and other people after your product is created.</p>
+</div>
+</br>
+	{% buttons %}
+	<a href="/dashboard">
+		<button type="submit" class="btn btn-primary">
+      		{% bootstrap_icon "star" %} Start your Product
+    	</button>
+    	</a>
+    	</br></br>
+	{% endbuttons %}
+	</div>
+
+</br></br>
+</div>
 {% endblock %}
+
+

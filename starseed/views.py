@@ -15,7 +15,20 @@ class ProductView(ListView):
     template_name = "product.html"
     model = Product
     
+class AddBountyView(TemplateView):
+    template_name = "AddBounty.html"
 
+class BountiesView(TemplateView):
+    template_name = "bounties.html"
+
+class DashboardView(TemplateView):
+    template_name = "dashboard.html"
+
+class MoonpieView(TemplateView):
+    template_name = "moonpie.html"
+
+class PartnersView(TemplateView):
+    template_name = "partners.html"
 #signup
 #invte team members
 #
