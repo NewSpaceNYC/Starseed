@@ -23,16 +23,17 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Application definition
 
 INSTALLED_APPS = (
+    'suit',
+    'django.contrib.sites', 
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites', 
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
     'starseed',
     'bootstrap3',
 )
@@ -47,15 +48,13 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.request',
-    'allauth.account.context_processors.account',
-    'allauth.socialaccount.context_processors.socialaccount',
-    'django.contrib.auth.context_processors.auth',
-)
 
 AUTHENTICATION_BACKENDS = (
+
+    # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
@@ -65,15 +64,28 @@ WSGI_APPLICATION = 'starseed.wsgi.application'
 
 SITE_ID = 1
 
+
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+## Setting up Postgres Django on C9
+### https://docs.c9.io/docs/setting-up-postgresql
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'starseeddb',  # path to database file if using sqlite3.
+        'USER': 'starseed',        # Not used with sqlite3.
+        'PASSWORD': "$fmgd&*%SJ@SKJFR(@",    # Not used with sqlite3.
+        # 'HOST': '127.0.0.1',        # Set to empty string for localhost.
+                           # Not used with sqlite3.
+        # 'PORT': '5432',        # Set to empty string for default.
+                           # Not used with sqlite3.
+        'CONN_MAX_AGE': 600,
+
     }
 }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -89,6 +101,20 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+
+# Django Suit configuration example
+# http://django-suit.readthedocs.org/en/develop/configuration.html
+
+SUIT_CONFIG = {
+    # header
+    'ADMIN_NAME': 'Starseed Admin',
+
+    # misc
+    'LIST_PER_PAGE': 100
+}
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
@@ -98,9 +124,37 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
+
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+    'allauth.account.context_processors.account',
+    'allauth.socialaccount.context_processors.socialaccount',
+    'django.contrib.auth.context_processors.auth',
 )
+
+
+# TEMPLATE_DIRS is depricated in Django 1.8: 
+## https://docs.djangoproject.com/en/1.8/ref/settings/#dirs
+## https://docs.djangoproject.com/en/1.8/intro/tutorial02/#customizing-your-project-s-templates
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+
 
 # Default settings
 BOOTSTRAP3 = {
