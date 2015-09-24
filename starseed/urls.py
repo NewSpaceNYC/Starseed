@@ -20,11 +20,11 @@ urlpatterns = patterns('',
     (r'^partners/', PartnersView.as_view()),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-urlpatterns += staticfiles_urlpatterns()
-urlpatterns += patterns('django.contrib.staticfiles.views',
-        #url(r'^(?:index.html)?$', 'serve', kwargs={'path': 'index.html'}),
-        url(r'^(?P<path>(?:js|css|img)/.*)$', 'serve'),
-    )
+# urlpatterns += staticfiles_urlpatterns()
+# urlpatterns += patterns('django.contrib.staticfiles.views',
+#         #url(r'^(?:index.html)?$', 'serve', kwargs={'path': 'index.html'}),
+#         url(r'^(?P<path>(?:js|css|img)/.*)$', 'serve'),
+#     )
 
 # https://docs.djangoproject.com/en/1.8/ref/contrib/admin/#adminsite-attributes
 admin.site.site_header = 'Starseed Admin'
