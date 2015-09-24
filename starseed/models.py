@@ -14,45 +14,47 @@ class Skill(models.Model):
 class Need(models.Model):
     need = models.CharField(max_length=100)
     
+
+
 # Entity - any person or organization
 # Inspired by Users - https://github.com/assemblymade/meta/blob/master/db/schema.rb#L1032
 
 class Entity(models.Model):
     name = models.CharField(max_length=255)
-    created_at = models.DateField()
-# person info -- only an individual has a first and last name
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-# entity info
-    birthdate = models.DateField()
-    email = models.EmailField(max_length=255)
-    email_failed_at = models.DateField()
+    url = models.CharField(max_length=255)
     twitter_uid = models.TextField()
     twitter_nickname = models.TextField()
-    facebook_uid = models.CharField(max_length=255)
+    facebook_url = models.CharField(max_length=255)
     linkedin_url = models.CharField(max_length=255)
     location = models.TextField()
-    avatar_url = models.CharField(max_length=255)
     bio = models.TextField()
+    created_at = models.DateField()
     updated_at = models.DateField(max_length=255)
-# related attributes
     tags = models.ManyToManyField(Tag)
     skills = models.ManyToManyField(Skill)
     needs = models.ManyToManyField(Need)
-
     
-class Address(models.Model):
-    entity = models.ForeignKey(Entity) 
-    address_line1 = models.CharField(max_length=255)
-    address_line2 = models.CharField(max_length=255)
-    address_city = models.CharField(max_length=255)
-    address_state = models.CharField(max_length=255)
-    address_postcode = models.CharField(max_length=255)
-    address_country = models.CharField(max_length=255)
-    # first valid date of address
-    from_date = models.DateField()
-    # last valid date of address
-    thru_date = models.DateField()
+# person info -- only an individual has a first and last name
+class Person(Entity):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    birthdate = models.DateField()
+    avatar_url = models.CharField(max_length=255)
+    
+class Organization(Entity):
+    founding_date = models.DateField()
+    # organization_type = I think this needs to be an enum rather than a table
+    # there is so much interesting stuff to capture here
+
+class Event(Entity):
+    start_date = models.DateField()
+    end_date = models.DateField()
+    parent_event = models.ForeignKey(Entity, related_name="origin_entity")
+
+class Project(Entity):
+    birthdate = models.DateField()
+    avatar_url = models.CharField(max_length=255)
+
     
 
 # Connections - how one entity is connected to another
