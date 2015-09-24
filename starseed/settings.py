@@ -3,8 +3,17 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import dj_database_url
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+try:
+    from getpass import getuser
+    import pwd
+except ImportError:
+    def getuser():
+        return os.environ.get('USERNAME', os.environ.get('USER'))
+USER = getuser()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -71,15 +80,6 @@ SITE_ID = 1
 ## Setting up Postgres Django on C9
 ### https://docs.c9.io/docs/setting-up-postgresql
 
-try:
-    from getpass import getuser
-    import pwd
-except ImportError:
-    def getuser():
-        return os.environ.get('USERNAME', os.environ.get('USER'))
-USER = getuser()
-
-
 if USER == "W":
     DATABASES = {
         'default': {
@@ -142,7 +142,13 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+
 
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',

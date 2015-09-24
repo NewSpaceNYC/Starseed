@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     (r'^dashboard/', DashboardView.as_view()),
     (r'^moonpie/', MoonpieView.as_view()),
     (r'^partners/', PartnersView.as_view()),
-) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+) 
 
 # urlpatterns += staticfiles_urlpatterns()
 # urlpatterns += patterns('django.contrib.staticfiles.views',
