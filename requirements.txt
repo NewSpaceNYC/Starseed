@@ -1,2 +1,7 @@
 Django==1.8.4
 django-allauth==0.19.1
+SQLAlchemy==0.9.8
+dj-database-url==0.3.0
+django-postgrespool==0.3.0
+gunicorn==19.2.1
+psycopg2==2.6
