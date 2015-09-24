@@ -2,7 +2,7 @@ from django.contrib import admin
 #from forms import UserForm
 
 # Register your models here.
-from .models import Tag
+from starseed.models import Tag
 from django.contrib.auth.models import User
 
 #class UserAdmin(admin.ModelAdmin):
