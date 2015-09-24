@@ -132,6 +132,8 @@ SUIT_CONFIG = {
     'LIST_PER_PAGE': 100
 }
 
+""" KEEP THIS v """
+SITE_ID=1 # http://stackoverflow.com/a/29828515/1762493
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
