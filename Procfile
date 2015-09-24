@@ -1,0 +1,1 @@
+web: gunicorn starseed.wsgi --log-file -

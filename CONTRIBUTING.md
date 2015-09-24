@@ -1,14 +1,16 @@
 # Working with the Starseed reposiroty
 
 We work from Cloud9 IDE: 
-- https://ide.c9.io/codedoc/starseed
+- https://ide.c9.io/codedoc/starseed (original version)
+- https://ide.c9.io/mikeumus/starseed (latest version)
 
-For things TODO, see [TODO.md](https://github.com/NewSpaceNYC/starseed/blob/master/TODO.md)
+For things TODO, see [Issues](https://github.com/NewSpaceNYC/Starseed/issues)
 
 We live code this project together at: 
 - https://www.livecoding.tv/codedoc/
+- https://www.livecoding.tv/mikeumus/
 
-###Conributors
+###Code Conributors
  - Sean (codedoc)
  - Mike (mikeumus)
  - Yusuf (iunary)
