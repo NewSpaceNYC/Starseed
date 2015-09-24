@@ -1,18 +1,18 @@
 from django.contrib import admin
-from forms import UserForm
+#from forms import UserForm
 
 # Register your models here.
 from .models import Tag
 from django.contrib.auth.models import User
 
-class UserAdmin(admin.ModelAdmin):
+#class UserAdmin(admin.ModelAdmin):
     
     # https://docs.djangoproject.com/en/1.8/ref/contrib/admin/#django.contrib.admin.ModelAdmin.formfield_overrides
     # formfield_overrides = {
     #     models.BooleanField: {'widget': ToggleCheckbox}, # https://docs.djangoproject.com/en/1.8/ref/forms/widgets/#checkboxinput
     # }
     
-    form = UserForm
+    #form = UserForm
     # addform = LabeledForm
 
 admin.site.register(Tag)

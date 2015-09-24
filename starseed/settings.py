@@ -70,21 +70,38 @@ SITE_ID = 1
 ## Setting up Postgres Django on C9
 ### https://docs.c9.io/docs/setting-up-postgresql
 
-DATABASES = {
-    'default': {
-        # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'starseeddb',  # path to database file if using sqlite3.
-        'USER': 'starseed',        # Not used with sqlite3.
-        'PASSWORD': "$fmgd&*%SJ@SKJFR(@",    # Not used with sqlite3.
-        # 'HOST': '127.0.0.1',        # Set to empty string for localhost.
-                           # Not used with sqlite3.
-        # 'PORT': '5432',        # Set to empty string for default.
-                           # Not used with sqlite3.
-        'CONN_MAX_AGE': 600,
+try:
+    from getpass import getuser
+    import pwd
+except ImportError:
+    def getuser():
+        return os.environ.get('USERNAME', os.environ.get('USER'))
+USER = getuser()
 
+
+if USER == "W":
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {    
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'starseeddb',  # path to database file if using sqlite3.
+            'USER': 'starseed',        # Not used with sqlite3.
+            'PASSWORD': "$fmgd&*%SJ@SKJFR(@",    # Not used with sqlite3.
+            'CONN_MAX_AGE': 600,
+
+        }
+    }
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES['default'] =  dj_database_url.config()
+    DATABASES['default']['ENGINE'] = 'django_postgrespool'
+
 
 
 # Internationalization
