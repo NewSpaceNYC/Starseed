@@ -13,7 +13,10 @@ class Skill(models.Model):
 # Need - competencies belonging to companies or individuals
 class Need(models.Model):
     need = models.CharField(max_length=100)
-    
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+
 # Entity - any person or organization
 # Inspired by Users - https://github.com/assemblymade/meta/blob/master/db/schema.rb#L1032
 
