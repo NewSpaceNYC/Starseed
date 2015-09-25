@@ -51,4 +51,3 @@ Gunicorn
   - `$ kill -HUP masterpid` # http://gunicorn-docs.readthedocs.org/en/latest/faq.html#how-do-i-reload-my-application-in-gunicorn
   - Finding the masterpid: `$ pstree -ap|grep gunicorn` # http://stackoverflow.com/a/26926130
 
-

@@ -4,16 +4,16 @@ from django.http import HttpResponse
 from django.views.generic import ListView
 
 import datetime
-from starseed.models import Product
+# from starseed.models import Product
 
 from django.views.generic import TemplateView
 
 class HomeView(TemplateView):
     template_name = "index.html"
 
-class ProductView(ListView):
-     template_name = "product.html"
-     model = Product
+# class ProductView(ListView):
+#      template_name = "product.html"
+#      model = Product
     
 class AddBountyView(TemplateView):
     template_name = "AddBounty.html"

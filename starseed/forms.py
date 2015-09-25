@@ -5,14 +5,14 @@ from django.forms import ModelForm
 from suit.widgets import SuitDateWidget, SuitTimeWidget, SuitSplitDateTimeWidget
 
 # http://django-suit.readthedocs.org/en/develop/widgets.html#date-time-widgets
-class UserChangeForm(ModelForm):
-    class Meta:
-        model = User
-        fields = "__all__"
-        widgets = {
-            'last_login': SuitSplitDateTimeWidget,
-            'date_joined': SuitSplitDateTimeWidget,
-        }
+# class UserChangeForm(ModelForm):
+#     class Meta:
+#         model = User
+#         fields = "__all__"
+#         widgets = {
+#             'last_login': SuitSplitDateTimeWidget,
+#             'date_joined': SuitSplitDateTimeWidget,
+#         }
 
 
 """ Notes

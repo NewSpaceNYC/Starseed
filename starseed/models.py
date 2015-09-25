@@ -44,11 +44,6 @@ class Organization(Entity):
     # organization_type = I think this needs to be an enum rather than a table
     # there is so much interesting stuff to capture here
 
-class Event(Entity):
-    start_date = models.DateField()
-    end_date = models.DateField()
-    parent_event = models.ForeignKey(Entity, related_name="origin_entity")
-
 class Project(Entity):
     birthdate = models.DateField()
     avatar_url = models.CharField(max_length=255)
