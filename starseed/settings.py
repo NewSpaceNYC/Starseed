@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'starseed',
+    'taggit',
     'bootstrap3',
 )
 
@@ -110,7 +111,7 @@ if 'DATABASE_URL' in os.environ:
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 

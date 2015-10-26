@@ -1,10 +1,10 @@
 # https://docs.djangoproject.com/en/1.8/topics/db/models/
 from django.db import models
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericForeignKey
+from taggit.managers import TaggableManager
 
 #MODELS
-# Tag - a loose way to tack attributes onto an Entity
-class Tag(models.Model):
-    tagname = models.CharField(max_length=100)
 
 # Skill - competencies belonging to companies or individuals
 class Skill(models.Model):
@@ -20,17 +20,20 @@ class Need(models.Model):
 class Entity(models.Model):
     name = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
-    twitter_uid = models.TextField()
-    twitter_nickname = models.TextField()
+    twitter_uid = models.CharField(max_length=255)
+    twitter_nickname = models.CharField(max_length=255)
     facebook_url = models.CharField(max_length=255)
     linkedin_url = models.CharField(max_length=255)
-    location = models.TextField()
+    email = models.EmailField()
     bio = models.TextField()
     created_at = models.DateField()
     updated_at = models.DateField(max_length=255)
-    tags = models.ManyToManyField(Tag)
     skills = models.ManyToManyField(Skill)
     needs = models.ManyToManyField(Need)
+    tags = TaggableManager()
+    
+   # class Meta:
+#        abstract = True
     
 # person info -- only an individual has a first and last name
 class Person(Entity):
@@ -44,13 +47,13 @@ class Organization(Entity):
     # organization_type = I think this needs to be an enum rather than a table
     # there is so much interesting stuff to capture here
 
-class Project(Entity):
-    birthdate = models.DateField()
-    avatar_url = models.CharField(max_length=255)
+class Project(models.Model):
+    name = models.CharField(max_length=255)
+    abstract = models.TextField()
 
     
 
-# Connections - how one entity is connected to another
+# Connections - how things are connected to each other
 
 # There is a ConnectionType table because we want to be able to add new 
 # connection types without hacking an enum in the code.
@@ -58,8 +61,12 @@ class ConnectionType(models.Model):
     connection_name = models.CharField(max_length=30)
 
 class Connection(models.Model):
-    from_entity = models.ForeignKey(Entity, related_name="origin_entity")
-    to_entity = models.ForeignKey(Entity, related_name="destination_entity")
+    from_content_type = models.ForeignKey(ContentType, related_name="from_this")
+    from_object_id = models.PositiveIntegerField()
+    from_content_object = GenericForeignKey('from_content_type', 'from_object_id')
+    to_content_type = models.ForeignKey(ContentType, related_name="to_that")
+    to_object_id = models.PositiveIntegerField()
+    to_content_object = GenericForeignKey('to_content_type', 'to_object_id')
     connection_type = models.ForeignKey(ConnectionType)
     from_date = models.DateField()
     thru_date = models.DateField()
@@ -75,9 +82,7 @@ class BusinessDataPoint(models.Model):
     business_datapoint_type = models.ForeignKey(BusinessDataPointType)
     
 
-
-
-# Project is something that a 
+# Project
 
 # User profile info. This is for the mechanics of a user of the application. 
 # A user will also be an entity. This is extra information related to login.
@@ -96,7 +101,7 @@ class UserProfile(models.Model):
     confirmation_sent_at = models.DateField()
     confirmed_at = models.DateField()
     confirmation_token = models.CharField(max_length=255)
-    unconfirmed_email = models.CharField(max_length=255)
+    unconfirmed_email = models.EmailField(max_length=255)
     authentication_token = models.TextField()
     mail_preference = models.CharField(max_length=255)
     github_uid = models.IntegerField()

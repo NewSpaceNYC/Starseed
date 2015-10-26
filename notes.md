@@ -12,6 +12,7 @@ Postgres in Cloud 9:
  - `$ createdb -O starseed starseeddb`
  - Run Postgres Server `$ sudo service postgresql start` 
  - Set Postgres User `pg_hba.conf`: http://stackoverflow.com/a/18664239/1762493
+ - Log into db `psql -Ustarseed -dstarseeddb -W`
  
 PSQL Commands
  - `DROP DATABASE [ IF EXISTS ] name` http://www.postgresql.org/docs/8.2/static/sql-dropdatabase.html
