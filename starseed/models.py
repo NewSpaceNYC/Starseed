@@ -17,6 +17,9 @@ class Need(models.Model):
 # Entity - any person or organization
 # Inspired by Users - https://github.com/assemblymade/meta/blob/master/db/schema.rb#L1032
 
+# not a fan of this abstraction this early on in the project.  There will be many twists and turns and keeping up with this 
+# Entity will be an extra step...
+
 class Entity(models.Model):
     name = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
@@ -47,6 +50,8 @@ class Organization(Entity):
     # organization_type = I think this needs to be an enum rather than a table
     # there is so much interesting stuff to capture here
 
+# we were orignally going to call this Product, to avoid hobby type of projects... Now thinkign of it, 
+# maybe we want to call this Company - to avoid having just a Product - we want to build companies...
 class Project(models.Model):
     name = models.CharField(max_length=255)
     abstract = models.TextField()
@@ -86,7 +91,9 @@ class BusinessDataPoint(models.Model):
 
 # User profile info. This is for the mechanics of a user of the application. 
 # A user will also be an entity. This is extra information related to login.
-class UserProfile(models.Model):
+# we can onetomany (User)...
+
+class UserProfile(models.Model):  
     entity = models.OneToOneField(Entity, primary_key=True) # https://docs.djangoproject.com/en/1.8/topics/db/examples/one_to_one/
     username = models.CharField(max_length=255)
     encrypted_password = models.CharField(max_length=255)

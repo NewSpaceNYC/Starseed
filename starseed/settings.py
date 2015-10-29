@@ -109,6 +109,9 @@ EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
