@@ -80,7 +80,7 @@ SITE_ID = 1
 ## Setting up Postgres Django on C9
 ### https://docs.c9.io/docs/setting-up-postgresql
 
-if USER == "W":
+if USER == "z":
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -103,6 +103,11 @@ if 'DATABASE_URL' in os.environ:
     DATABASES['default'] =  dj_database_url.config()
     DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = os.environ['SENDGRID_USERNAME']
+EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 
 # Internationalization
@@ -144,11 +149,7 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 
-MAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = os.environ['SENDGRID_USERNAME']
-EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+
 
 
 # Simplified static file serving.
