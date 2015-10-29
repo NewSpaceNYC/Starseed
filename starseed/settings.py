@@ -3,7 +3,6 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import dj_database_url
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -33,12 +32,12 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Application definition
 
 INSTALLED_APPS = (
-    'suit',
+    'suit', # DjangoSuit http://django-suit.readthedocs.org/en/develop/#installation 
+    'django.contrib.admin', # https://docs.djangoproject.com/en/1.8/ref/contrib/admin/
     'django.contrib.sites', 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -151,7 +150,8 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
-
+# DjangoSuit http://django-suit.readthedocs.org/en/develop/#installation
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
