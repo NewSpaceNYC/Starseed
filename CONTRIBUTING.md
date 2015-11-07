@@ -20,8 +20,11 @@ We live code this project together at:
 - https://www.livecoding.tv/mikeumus/
 
 ###Code Conributors
- - Sean (codedoc)
- - Mike (mikeumus)
- - Yusuf (iunary)
+ - Sean (@codedoc)
+ - Mike (@mikeumus)
+ - Yusuf (@iunary)
+ - Michael (@maeldun-x)
+ - Sadia (@uniaquinas)
+ - Marc (@mashcode)
  - You?  Join our project today email mikeumus@gmail.com to get Read/Write access 
 
