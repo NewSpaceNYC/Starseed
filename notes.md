@@ -13,14 +13,16 @@ Postgres in Cloud 9:
  - Run Postgres Server `$ sudo service postgresql start` 
  - Set Postgres User `pg_hba.conf`: http://stackoverflow.com/a/18664239/1762493
  - Log into db `psql -Ustarseed -dstarseeddb -W`
-Marc's C9 recipe:
- - In the Cloud9 Project screen select Django template
+
+Marc's Cloud 9 recipe:
+ - In the c9 Project screen select Django template
  - Clone from Git copy/paste `https://github.com/NewSpaceNYC/starseed.git`
  - Create workspace
  - In the workspace click Open to launch the project into a new window
  - `sudo pip install -r requirements.txt `
  - `$ sudo -s` then `sudo -u postgres psql` or `sudo su - postgres`
  - `$ createuser -d -P -s starseed` 
+ - Enter password
  - `$ createdb -O starseed starseeddb` 
  - `\q`
  - Run Postgres Server (see above)
