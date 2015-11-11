@@ -14,6 +14,8 @@ https://docs.djangoproject.com/en/1.7/intro/tutorial01/
 Also see:
  - [CONTRIBUTING.md](https://github.com/NewSpaceNYC/starseed/blob/master/CONTRIBUTING.md)
  - [TODO.md](https://github.com/NewSpaceNYC/starseed/blob/master/TODO.md)
+ - [README.md](https://github.com/NewSpaceNYC/starseed/blob/master/README.md)
+ - [notes.md](https://github.com/NewSpaceNYC/starseed/blob/master/notes.md)
 
 ### Future plans:
  - livecoding_stream :) (probably anyways to make it open and as a Google Hangouts addon)
