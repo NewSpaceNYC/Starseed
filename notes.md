@@ -27,12 +27,14 @@ Marc's Cloud 9 recipe:
  - `\q`
  - Run Postgres Server (see above)
  
+
 PSQL Commands
  - `DROP DATABASE [ IF EXISTS ] name` http://www.postgresql.org/docs/8.2/static/sql-dropdatabase.html
  - `ALTER DATABASE one RENAME TO "one-two";` http://stackoverflow.com/a/3942826/1762493
  - `\l` list databases
  - `\du` list users
  - `\q` quit PSQL
+
 
 Install psycopg2 for postgres
 - http://stackoverflow.com/a/5450183
@@ -46,20 +48,24 @@ Using chromedriver Using PhantomJS in AWS
 
 Django Notes
  - Django AllAuth http://django-allauth.readthedocs.org/en/latest/
- - `sudo service postgresql start|stop|restart`
+ - Run postgres C9`sudo service postgresql start|stop|restart`
+ - `python manage.py migrate|syncdb|showmigrations`
 
 
 C9 Notes
-- Running Django in C9
- - `sudo service postgresql start|stop|restart`
- - `$ ./manage.py runserver $IP:$PORT` 
- - 
+ - Running Django in C9
+  - `$ ./manage.py runserver $IP:$PORT` 
+ - Running Postgres in C9 
+  - `sudo service postgresql start|stop|restart`
+  - `python manage.py migrate|syncdb|showmigrations`
+  - Error: relation "django_content_type" does not exist http://stackoverflow.com/questions/30545562/django-column-name-of-relation-django-content-type-does-not-exist
+    `python manage.py makemigrations <appname>` will create the initial migrations for your app [see INSTALLED_APPS in settings.py]
 
 
 AWS Notes
-- Running Django in AWS:
- - `$ ./manage.py runserver 0.0.0.0` 
-- Resizing AWS EC2 Instance: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html
+ - Running Django in AWS:
+  - `$ ./manage.py runserver 0.0.0.0` 
+ - Resizing AWS EC2 Instance: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html
 
 
 Gunicorn
