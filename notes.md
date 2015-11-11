@@ -58,7 +58,9 @@ C9 Notes
  - Running Postgres in C9 
   - `sudo service postgresql start|stop|restart`
   - `python manage.py migrate|syncdb|showmigrations`
-  - Error: relation "django_content_type" does not exist http://stackoverflow.com/questions/30545562/django-column-name-of-relation-django-content-type-does-not-exist
+  - Error: relation "django_content_type" does not exist 
+    http://stackoverflow.com/questions/30545562/django-column-name-of-relation-django-content-type-does-not-exist
+    http://stackoverflow.com/questions/29608659/django-1-8-create-table-before-reference-django-content-type-and-them-fails
     `python manage.py makemigrations <appname>` will create the initial migrations for your app [see INSTALLED_APPS in settings.py]
 
 
