@@ -2,7 +2,7 @@
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
-from taggit.managers import TaggableManager
+#from taggit.managers import TaggableManager
 
 #MODELS
 
@@ -33,7 +33,7 @@ class Entity(models.Model):
     updated_at = models.DateField(max_length=255)
     skills = models.ManyToManyField(Skill)
     needs = models.ManyToManyField(Need)
-    tags = TaggableManager()
+    #tags = TaggableManager()
     
    # class Meta:
 #        abstract = True
