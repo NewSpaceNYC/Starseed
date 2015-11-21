@@ -4,6 +4,8 @@ https://github.com/NewSpaceNYC/starseed.git
 Waffle.io Task-Cards
 [![Stories in Ready](https://badge.waffle.io/NewSpaceNYC/Starseed.png?label=ready&title=Ready)](https://waffle.io/NewSpaceNYC/Starseed)
 
+![Codeship](https://codeship.com/projects/353dec70-72ac-0133-ff64-1a41efae3cbb/status?branch=master)
+
 A project that aims to be a whitelabel assmebly.com (for all types of projects that can effectively leverage bounties)
 no lock in... etc... check this document for high level outline: 
 http://goo.gl/WTH2tm
