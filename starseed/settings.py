@@ -3,6 +3,7 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import dj_database_url
+from django.http import Http404
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -92,14 +93,10 @@ else:
     DATABASES = {
         'default': {    
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'starseeddb',  # path to database file if using sqlite3.
-            'USER': 'starseed',        # Not used with sqlite3.
-            'PASSWORD': "$fmgd&*%SJ@SKJFR(@",    # Not used with sqlite3.
+            'NAME': 'starseeddb', 
+            'USER': os.environ.get('PG_USER', 'starseed'),  
+            'PASSWORD': os.environ.get('PG_PASSWORD', '$fmgd&*%SJ@SKJFR(@'),   
             'CONN_MAX_AGE': 600,
-        },
-        'test': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
 
