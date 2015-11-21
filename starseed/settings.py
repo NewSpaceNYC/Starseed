@@ -45,7 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'starseed',
-    #'taggit',
+    'taggit',
     'bootstrap3',
 )
 
