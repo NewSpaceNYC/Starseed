@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h1>{{ object.username}}</h1>
+
+<p>Joined {{ object.date_joined|date:"m/d/Y"}}</p>
+
+<ul>
+{% for account in object.socialaccount_set.all %}
+	{% if account.provider == 'google' %}
+		<li><a href="{{account.extra_data.link }}" target="_new">Google Profile</a></li>
+	{% endif %}
+</ul>
+{% endfor %}
+                 
+
+{% endblock %}

@@ -56,6 +56,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 )
 
 
@@ -95,19 +96,37 @@ else:
             'USER': 'starseed',        # Not used with sqlite3.
             'PASSWORD': "$fmgd&*%SJ@SKJFR(@",    # Not used with sqlite3.
             'CONN_MAX_AGE': 600,
-
+        },
+        'test': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
 
-if 'DATABASE_URL' in os.environ:
-    DATABASES['default'] =  dj_database_url.config()
-    DATABASES['default']['ENGINE'] = 'django_postgrespool'
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL_HOST = 'localhost'
+    EMAIL_PORT = 1025
 
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME','blank')
-EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD','blank')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+if 'DATABASE_URL' in os.environ:
+    DEBUG = False
+    DATABASES['default'] = dj_database_url.config()
+    DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+    ROLLBAR = {
+        'access_token': '8d17c8a107e347d2a50dac1e8ca5b618',
+        'environment': 'development' if DEBUG else 'production',
+        'root': BASE_DIR,
+        'exception_level_filters': [
+            (Http404, 'warning')
+        ]
+    }
+    import rollbar
+    rollbar.init(**ROLLBAR)
+    EMAIL_HOST = 'smtp.sendgrid.net'
+    EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME','blank')
+    EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD','blank')
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True

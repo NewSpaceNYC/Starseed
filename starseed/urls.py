@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     (r'^dashboard/', DashboardView.as_view()),
     (r'^moonpie/', MoonpieView.as_view()),
     (r'^partners/', PartnersView.as_view()),
+    url(r'^accounts/profile/$', ProfileView.as_view(), name="profile_user"),
+    url(r"^accounts/profile/(?P<slug>[\w-]+)/$", ProfileDetailView.as_view(), name="profile_user"),
 ) 
 
 # urlpatterns += staticfiles_urlpatterns()

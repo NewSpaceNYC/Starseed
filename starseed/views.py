@@ -1,7 +1,9 @@
 #from __future__ import absolute_import 
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
+from django.contrib.auth import get_user_model
+from django.shortcuts import get_object_or_404
 
 import datetime
 from starseed.models import Project
@@ -14,7 +16,20 @@ class HomeView(TemplateView):
 class ProductView(ListView):
       template_name = "product.html"
       model = Project
-    
+
+
+class ProfileView(DetailView):
+    template_name = 'account/profile.html'
+    def get_object(self):
+        return get_object_or_404(get_user_model(), pk=self.request.user.id)
+
+
+class ProfileDetailView(DetailView):
+    model = get_user_model()
+    slug_field = "username"
+    template_name = 'account/profile.html'
+
+
 class AddBountyView(TemplateView):
     template_name = "AddBounty.html"
 
