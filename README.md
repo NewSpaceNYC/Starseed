@@ -1,10 +1,8 @@
 # Welcome to the StarSeed project.
 https://github.com/NewSpaceNYC/starseed.git
+https://git.io/vw9NG
 
-Waffle.io Task-Cards
-[![Stories in Ready](https://badge.waffle.io/NewSpaceNYC/Starseed.png?label=ready&title=Ready)](https://waffle.io/NewSpaceNYC/Starseed)
-
-![Codeship](https://codeship.com/projects/353dec70-72ac-0133-ff64-1a41efae3cbb/status?branch=master)
+[![Stories in Ready](https://badge.waffle.io/NewSpaceNYC/Starseed.png?label=ready&title=Ready)](https://waffle.io/NewSpaceNYC/Starseed) ![Codeship](https://codeship.com/projects/353dec70-72ac-0133-ff64-1a41efae3cbb/status?branch=master)
 
 A project that aims to be a whitelabel assmebly.com (for all types of projects that can effectively leverage bounties)
 no lock in... etc... check this document for high level outline: 
@@ -22,7 +20,6 @@ Also see:
 ### Future plans:
  - livecoding_stream :) (probably anyways to make it open and as a Google Hangouts addon)
  - machine learning, all the things
- - use slack as plugin for chat
 
 ### ideas:
  - for our version of live coding we can have a mobile app... can have bluetooth... 
