@@ -53,11 +53,11 @@ class Organization(Entity):
 # we were orignally going to call this Product, to avoid hobby type of projects... Now thinkign of it, 
 # maybe we want to call this Company - to avoid having just a Product - we want to build companies...
 class Project(models.Model):
-    person = models.CharField(max_length=255)
+    #person = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
-    email = models.CharField(max_length=255)
-    description = models.TextField()
-    equity = models.CharField(max_length=255)
+    #email = models.CharField(max_length=255)
+    #description = models.TextField()
+    #equity = models.CharField(max_length=255)
 
 
     
