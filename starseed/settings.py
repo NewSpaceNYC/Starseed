@@ -15,7 +15,7 @@ USER = getuser()
 
 SECRET_KEY = '(1-b75%)a(!wb)ge(htjd9&8lzs1$@f-4+$dmvrj!^4hbfapwr'
 
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', True)
 
 TEMPLATE_DEBUG = True
 
@@ -89,7 +89,7 @@ else:
     }
 
 if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = 'localhost'
     EMAIL_PORT = 1025
 
