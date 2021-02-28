@@ -1,43 +1,69 @@
-{% extends "base.html" %}
-{% load bootstrap3 %}
-{% load staticfiles %}
-{% block title %}StarSeed - Equity Sharing Product Platform{% endblock %}
-{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
 
-<div class="row" style="text-align:center;">
-	</br>
-	<div class="home-card">
-		</br>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Starseed - pico innovation funding</title>
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form-basic.css' %}">
+</head>
 
-		<video autoplay loop poster="{% static 'purple-nebula.jpg' %}" id="bgvid">
-			<source src="https://826fc79f49996b1370f534ef1d6b64b55462af1b.googledrive.com/host/0B9LVk4xbDIJTanZTSzZONEhoSzg" type="video/mp4">
-		</video>
+<body>
+    <header>
+        <h1>Starseed - pico innovative funding.</h1>
+        <a href="https://github.com/NewSpaceNYC/Starseed/wiki/About">About Us</a>
+    </header>
 
-		<!--<img src="{% static "logo-trans.png" %}">-->
-		<i class="home-sun material-icons">brightness_high</i>
-		</br></br>
-		<p class="slogan">Starseed is an equity-crowdfunding skill-sharing product-innovation platform.</p>
-		</br>
-	
-		{% buttons %}
-		<a href="/product">
-			<button type="submit" class="btn btn-primary">
-	      		{% bootstrap_icon "star" %} Start a Product
-	    	</button>
-	    	</a>
-	    			<a href="/accounts/signup">
-			<button type="submit" class="btn btn-primary">
-	      		{% bootstrap_icon "user" %} Sign Up
-	    	</button>
-	    	</a>
-	    			<a href="/accounts/login">
-			<button type="submit" class="btn btn-primary">
-	      		{% bootstrap_icon "log-in" %} Sign In
-	    	</button>
-	    	</a>
-		{% endbuttons %}
-		<p class="github-slogan">And we're open source! <i class="fa fa-github-alt"></i> </p>
-		</br></br>
-	</div>
-</div>
-{% endblock %}
+    <div class="main-header">
+        <h2>Starseed provides pico funding of $100 to innovative ideas or businesses. We then help you make them
+            successful!
+        </h2>
+        <p>In exchange for the $100, starseed asks for some equity.</p>
+    </div>
+
+    <div class="main-content">
+        <form class="form-basic" method="post" action="/">
+            {% csrf_token %}
+
+            <div class="form-title-row">
+                <h1>Apply for $100 funding</h1>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Your full name:</span>
+                    {{form.person}}
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Name of idea or business</span>
+                    {{form.name}}
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Describe your idea or business</span>
+                    {{form.description}}
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>What % of equity are you offering?</span>
+                    {{form.equity}}
+                </label>
+            </div>
+            <div class="form-row">
+                {{form.captcha}}
+            </div>
+            <div class="form-row">
+                
+                <button type="submit">Apply for Funding</button>
+
+            </div>
+        </form>
+    </div>
+</body>
+</html>

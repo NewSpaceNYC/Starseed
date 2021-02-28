@@ -1,41 +1,32 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
+from django.urls import path
+
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic import TemplateView
 from starseed.views import *
 
-urlpatterns = patterns('',
-    #url(r'^$', 'starseed.views.home', name='home'),
-    url(r'^accounts/', include('allauth.urls')),
-    (r'^accounts/', include('allauth.urls')),
-    (r'^$', HomeView.as_view()),
-    (r'^product/', ProductView.as_view()),
-    (r'^admin/', include(admin.site.urls)),
-    (r'^add-bounty/', AddBountyView.as_view()),
-    (r'^bounties/', BountiesView.as_view()),
-    (r'^dashboard/', DashboardView.as_view()),
-    (r'^moonpie/', MoonpieView.as_view()),
-    (r'^partners/', PartnersView.as_view()),
-    url(r'^accounts/profile/$', ProfileView.as_view(), name="profile_user"),
-    url(r"^accounts/profile/(?P<slug>[\w-]+)/$", ProfileDetailView.as_view(), name="profile_user"),
-) 
+urlpatterns = [
 
-# urlpatterns += staticfiles_urlpatterns()
-# urlpatterns += patterns('django.contrib.staticfiles.views',
-#         #url(r'^(?:index.html)?$', 'serve', kwargs={'path': 'index.html'}),
-#         url(r'^(?P<path>(?:js|css|img)/.*)$', 'serve'),
-#     )
+    path('accounts/', include('allauth.urls')),
+    path('', HomeView.as_view()),
+    path('captcha/', include('captcha.urls')),
+    path('product/', ProductView.as_view()),
+    path('thanks/', TemplateView.as_view(template_name='thanks.html')),
+    path('admin/', admin.site.urls),
+    path('add-bounty/', AddBountyView.as_view()),
+    path('bounties/', BountiesView.as_view()),
+    path('dashboard/', DashboardView.as_view()),
+    path('moonpie/', MoonpieView.as_view()),
+    path('partners/', PartnersView.as_view()),
+    path('accounts/profile/', ProfileView.as_view(), name="profile_user"),
+    path("accounts/profile/<slug>/", ProfileDetailView.as_view(), name="profile_user"),
+]
 
-# https://docs.djangoproject.com/en/1.8/ref/contrib/admin/#adminsite-attributes
+
 admin.site.site_header = 'Starseed Admin'
 admin.site.site_title = 'Starseed Admin'
 admin.site.site_url = None # https://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.AdminSite.site_url
-
-
-""" Notes
- - https://docs.djangoproject.com/en/1.8/intro/tutorial03/#write-your-first-view
- - http://django-suit.readthedocs.org/en/develop/#
-"""
-#+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

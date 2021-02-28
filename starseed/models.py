@@ -53,8 +53,11 @@ class Organization(Entity):
 # we were orignally going to call this Product, to avoid hobby type of projects... Now thinkign of it, 
 # maybe we want to call this Company - to avoid having just a Product - we want to build companies...
 class Project(models.Model):
+    person = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
-    abstract = models.TextField()
+    description = models.TextField()
+    equity = models.CharField(max_length=255)
+
 
     
 
@@ -66,13 +69,13 @@ class ConnectionType(models.Model):
     connection_name = models.CharField(max_length=30)
 
 class Connection(models.Model):
-    from_content_type = models.ForeignKey(ContentType, related_name="from_this")
+    from_content_type = models.ForeignKey(ContentType, related_name="from_this", on_delete=models.CASCADE)
     from_object_id = models.PositiveIntegerField()
     from_content_object = GenericForeignKey('from_content_type', 'from_object_id')
-    to_content_type = models.ForeignKey(ContentType, related_name="to_that")
+    to_content_type = models.ForeignKey(ContentType, related_name="to_that", on_delete=models.CASCADE)
     to_object_id = models.PositiveIntegerField()
     to_content_object = GenericForeignKey('to_content_type', 'to_object_id')
-    connection_type = models.ForeignKey(ConnectionType)
+    connection_type = models.ForeignKey(ConnectionType, on_delete=models.CASCADE)
     from_date = models.DateField()
     thru_date = models.DateField()
 
@@ -83,8 +86,8 @@ class BusinessDataPointType(models.Model):
     business_datapoint_type_name = models.CharField(max_length=30)
 
 class BusinessDataPoint(models.Model):
-    entity = models.ForeignKey(Entity)
-    business_datapoint_type = models.ForeignKey(BusinessDataPointType)
+    entity = models.ForeignKey(Entity, on_delete=models.CASCADE)
+    business_datapoint_type = models.ForeignKey(BusinessDataPointType, on_delete=models.CASCADE)
     
 
 # Project
@@ -94,7 +97,7 @@ class BusinessDataPoint(models.Model):
 # we can onetomany (User)...
 
 class UserProfile(models.Model):  
-    entity = models.OneToOneField(Entity, primary_key=True) # https://docs.djangoproject.com/en/1.8/topics/db/examples/one_to_one/
+    entity = models.OneToOneField(Entity, primary_key=True, on_delete=models.CASCADE) # https://docs.djangoproject.com/en/1.8/topics/db/examples/one_to_one/
     username = models.CharField(max_length=255)
     encrypted_password = models.CharField(max_length=255)
     reset_password_token = models.CharField(max_length=255)

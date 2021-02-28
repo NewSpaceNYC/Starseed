@@ -1,0 +1,29 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+dj-database-url = "*"
+django-allauth = "*"
+django-bootstrap3 = "*"
+django-postgrespool = "*"
+django-taggit = "*"
+docutils = "*"
+gunicorn = "*"
+oauthlib = "*"
+psycopg2 = "*"
+python-openid = "*"
+requests = "*"
+requests-oauthlib = "*"
+rollbar = "*"
+six = "*"
+whitenoise = "*"
+Django = "*"
+SQLAlchemy = "*"
+django-simple-captcha = "*"
+
+[requires]
+python_version = "3.8"
