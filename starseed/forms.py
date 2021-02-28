@@ -26,7 +26,7 @@ class CaptchaTestModelForm(forms.ModelForm):
             from_email=settings.SERVER_EMAIL,
             to_emails=settings.SERVER_EMAIL,
             subject='Application from ' + self.cleaned_data["name"],
-            html_content='Name: ' + self.cleaned_data["person"] + 'Email: ' + self.cleaned_data["email"] + 'IdeaName: ' + self.cleaned_data["name"] + 'Description: ' + self.cleaned_data["description"])
+            html_content='Name: ' + self.cleaned_data["person"] + '<br>Email: ' + self.cleaned_data["email"] + '<br>IdeaName: ' + self.cleaned_data["name"] + '<br>Equity: ' + self.cleaned_data["equity"] + '<br>Description: ' + self.cleaned_data["description"])
         print(message)
         try:
             sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY', ''))
