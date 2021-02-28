@@ -13,6 +13,9 @@ from .forms import CaptchaTestModelForm
 from django.views.generic import TemplateView
 
 
+def throw_error(request):
+    raise ValueError('error')
+
 class HomeView(FormView):
     template_name = "index.html"
     form_class = CaptchaTestModelForm

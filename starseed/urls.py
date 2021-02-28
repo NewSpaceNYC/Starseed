@@ -24,6 +24,7 @@ urlpatterns = [
     path('partners/', PartnersView.as_view()),
     path('accounts/profile/', ProfileView.as_view(), name="profile_user"),
     path("accounts/profile/<slug>/", ProfileDetailView.as_view(), name="profile_user"),
+    path('error/', throw_error, name='error'),
 ]
 
 
