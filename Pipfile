@@ -24,6 +24,7 @@ whitenoise = "*"
 Django = "*"
 SQLAlchemy = "*"
 django-simple-captcha = "*"
+sendgrid = "*"
 
 [requires]
 python_version = "3.8"
