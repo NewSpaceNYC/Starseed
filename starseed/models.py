@@ -55,6 +55,7 @@ class Organization(Entity):
 class Project(models.Model):
     person = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
     description = models.TextField()
     equity = models.CharField(max_length=255)
 

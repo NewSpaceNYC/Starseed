@@ -12,20 +12,6 @@ from .forms import CaptchaTestModelForm
 
 from django.views.generic import TemplateView
 
-# def submit_form(request):
-#     if request.POST:
-#         form = CaptchaTestModelForm(request.POST)
-
-#         # Validate the form: the captcha field will automatically
-#         # check the input
-#         if form.is_valid():
-#             human = True
-#             return render(request, 'thanks.html', {'form': form})
-#         else:
-#             return render(request, 'index.html', {'form': form})
-
-
-    
 
 class HomeView(FormView):
     template_name = "index.html"
@@ -34,7 +20,7 @@ class HomeView(FormView):
 
     def form_valid(self, form):
         human = True
-        #form.send_email()
+        form.send_email()
         return super().form_valid(form)
 
 class ProductView(ListView):
