@@ -17,6 +17,7 @@ class CaptchaTestModelForm(forms.ModelForm):
             settings.SERVER_EMAIL,
             [settings.SERVER_EMAIL],
         )
+        email.send()
 
     class Meta:
         fields =  '__all__'
