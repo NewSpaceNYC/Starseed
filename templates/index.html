@@ -16,7 +16,7 @@
 <body>
     <header>
         <h1><a href="/">Starseed - pico innovative funding.</a></h1>
-        <a href="https://github.com/NewSpaceNYC/Starseed/wiki/About">About Us</a>
+        <a href="/about">About Us / FAQ</a>
     </header>
 
     <div class="main-header">
@@ -31,17 +31,18 @@
             {% csrf_token %}
 
             <div class="form-title-row">
-                <h1>Apply for $100 funding</h1>
+                <h1>Apply for $100 funding</h1></br>
+                <small style="color:grey;">all fields are required</small>
             </div>
             <div class="form-row">
                 <label>
-                    <span>Your full name:</span>
+                    <span>Your full name</span>
                     {{form.person}}
                 </label>
             </div>
             <div class="form-row">
                 <label>
-                    <span>Your email:</span>
+                    <span>Your email</span>
                     {{form.email}}
                 </label>
             </div>
@@ -64,6 +65,18 @@
                 </label>
             </div>
             <div class="form-row">
+                <label>
+                    <span>Friend email #1</span>
+                    {{form.email1}}
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Friend email #2</span>
+                    {{form.email2}}
+                </label>
+            </div>
+            <div class="form-row" style="text-align: center;">
                 {{form.captcha}}{{form.errors.captcha}}
             </div>
             <div class="form-row">

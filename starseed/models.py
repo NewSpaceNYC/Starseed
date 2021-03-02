@@ -3,8 +3,7 @@ from django.db import models
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from taggit.managers import TaggableManager
-
-#MODELS
+from django.utils import timezone
 
 # Skill - competencies belonging to companies or individuals
 class Skill(models.Model):
@@ -58,7 +57,10 @@ class Project(models.Model):
     email = models.CharField(max_length=255,default="")
     description = models.TextField(default="")
     equity = models.CharField(max_length=255,default="")
-
+    email1 = models.CharField(max_length=255,default="")
+    email2 = models.CharField(max_length=255,default="")
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     
 

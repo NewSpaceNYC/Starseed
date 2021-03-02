@@ -16,6 +16,7 @@ urlpatterns = [
     path('captcha/', include('captcha.urls')),
     path('product/', ProductView.as_view()),
     path('thanks/', TemplateView.as_view(template_name='thanks.html')),
+    path('about/', TemplateView.as_view(template_name='about.html')),
     path('admin/', admin.site.urls),
     path('add-bounty/', AddBountyView.as_view()),
     path('bounties/', BountiesView.as_view()),
