@@ -23,6 +23,7 @@ class HomeView(FormView):
 
     def form_valid(self, form):
         human = True
+        form.save()
         form.send_email()
         return super().form_valid(form)
 
