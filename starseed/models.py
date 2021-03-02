@@ -54,11 +54,11 @@ class Organization(Entity):
 class Project(models.Model):
     person = models.CharField(max_length=255,default="")
     name = models.CharField(max_length=255)
-    email = models.CharField(max_length=255,default="")
+    email = models.EmailField(max_length=255,default="")
     description = models.TextField(default="")
     equity = models.CharField(max_length=255,default="")
-    email1 = models.CharField(max_length=255,default="")
-    email2 = models.CharField(max_length=255,default="")
+    email1 = models.EmailField(max_length=255,default="")
+    email2 = models.EmailField(max_length=255,default="")
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 

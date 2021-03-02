@@ -35,7 +35,7 @@ class CaptchaTestModelForm(forms.ModelForm):
             response = sg.send(message2)
             response = sg.send(message3)
         except Exception as e:
-            print(e.message)
+            print(e)
 
 
     class Meta:
