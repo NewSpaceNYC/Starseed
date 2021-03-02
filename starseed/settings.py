@@ -20,7 +20,7 @@ DEBUG = os.environ.get('DEBUG', True)
 TEMPLATE_DEBUG = True
 
 SERVER_EMAIL = os.environ.get('SERVER_EMAIL')
-SERVER_TO_EMAILS = os.environ.get('SERVER_TO_EMAILS')
+SERVER_TO_EMAILS = os.environ.get('SERVER_TO_EMAILS','email1@email.com,email2@email.com')
 
 ALLOWED_HOSTS = ['*']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
