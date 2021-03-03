@@ -111,8 +111,27 @@ ul li{
 
 }
 
-.main-content{
+.main-content {
+    height: calc(100vh - 75px);
     margin-bottom: 75px;
+}
+
+.footer {
+    color: #313131;
+    margin: auto;
+    width: 100vw;
+    display: block;
+    text-align: center;
+    padding: 25px;
+}
+
+.footer-content {	
+    color: #313131;
+    margin: auto;
+    width: 100vw;
+    display: block;
+    text-align: center;
+    padding: 25px;
 }
 
 /* -- Demo ads -- */
