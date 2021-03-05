@@ -1,72 +1,62 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
+{% block header %}Starseed was created to empower ideas, businesses or projects to take the next step.{% endblock %}
+</h2>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Starseed - pico innovation funding</title>
-    <base href="/">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}" >
-    <link rel="stylesheet" type="text/css" href="{% static 'css/form-basic.css' %}">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
-</head>
-
-<body>
-    <header>
-        <h1><a href="/">Starseed - pico innovation funding.</a></h1>
-        <a href="/about">About Us / FAQ</a>
-    </header>
-
-    <div class="main-header">
-        <h2>Starseed was created to empower ideas or businesses to take a pico step.</h2>
+{% block content %}
+<form class="form-basic" method="post" action="/">
+    <div class="form-row">
+        <span>Q:</span>
+        <p> What's a pico/micro fund?</p></br>
+        <span>A:</span>
+        <p> A pico/micro fund supplies small amounts of cash to ideas, startups, school programs/projects/clubs. Usually
+            under 1k USD.</p></br>
+        <br>
+        <span>Q:</span>
+        <p> Why $100?</p></br>
+        <span>A:</span>
+        <p> This is what the fund can afford at this time. Every little bit helps and <i>it feels great to give!</i></p>
+        </br>
+        <br>
+        <span>Q:</span>
+        <p> What was your inspiration for a pico fund?</p></br>
+        <span>A:</span>
+        <p> See https://github.com/nayafia/microgrants</p></br>
+        <br>
+        <span>Q:</span>
+        <p> What's your goal?</p></br>
+        <span>A:</span>
+        <p> 1000 pico investments. That's $100,000. That's a lot. That's why we request some equity in return. To
+            reinvest it back into Starseed over time. This is an experiment to see if Starseed can achieve 1000 pico
+            investments in its lifetime where so many other pico/micro grant programs have closed down. </p></br>
+        <br>
+        <span>Q:</span>
+        <p> Who are you and what do you do?</p></br>
+        <span>A:</span>
+        <p> Starseed was created by an anonymous innovator and a business partner. You'll learn more about them when
+            your proposal gets accepted.</p></br>
+        <br>
+        <span>Q:</span>
+        <p> You want equity in my company for $100 are you joking?</p></br>
+        <span>A:</span>
+        <p> With the rise of micro funding, crowdfunding and such, it's not too much to ask for a percentage of equity.
+            Use as many decimal places as you'd like. This will help us keep an interest in you.</p></br>
+        <br>
+        <span>Q:</span>
+        <p> What if I don't have a company yet?</p></br>
+        <span>A:</span>
+        <p> We'd like you to have one eventually and would like to share in building it with you.</p></br>
+        <br>
+        <span>Q:</span>
+        <p> What else do I get besides $100?</p></br>
+        <span>A:</span>
+        <p> Our team has massive domain knowledge when it comes to startups, funding and innovation. We will help in any
+            way we can to make the business a success.</p></br>
+        <br>
+        <span>Q:</span>
+        <p> What's your email address?</p></br>
+        <span>A:</span>
+        <p> <a href="mailto:hello@starseed.fund">hello@starseed.fund</a></p></br>
     </div>
-
-    <div class="main-content">
-        <form class="form-basic" method="post" action="/">
-        <div class="form-row">
-                <span>Q:</span><p> What's a pico/micro fund?</p></br>
-                <span>A:</span><p> A pico/micro fund supplies small amounts of cash to ideas, startups, school programs/projects/clubs. Usually under 1k USD.</p></br>
-                <br>  
-                <span>Q:</span><p> Why $100?</p></br>
-                <span>A:</span><p> This is what the fund can afford at this time. Every little bit helps and <i>it feels great to give!</i></p></br>
-                <br>  
-                <span>Q:</span><p> What was your inspiration for a pico fund?</p></br>
-                <span>A:</span><p> See https://github.com/nayafia/microgrants</p></br>
-                <br>  
-                <span>Q:</span><p> What's your goal?</p></br>
-                <span>A:</span><p> 1000 pico investments. That's $100,000. That's a lot. That's why we request some equity in return. To reinvest it back into Starseed over time. This is an experiment to see if Starseed can achieve 1000 pico investments in its lifetime where so many other pico/micro grant programs have closed down. </p></br>
-                <br>  
-                <span>Q:</span><p> Who are you and what do you do?</p></br>
-                <span>A:</span><p> Starseed was created by an anonymous innovator and a business partner. You'll learn more about them when your proposal gets accepted.</p></br>
-                <br>  
-                <span>Q:</span><p> You want equity in my company for $100 are you joking?</p></br>
-                <span>A:</span><p> With the rise of micro funding, crowdfunding and such, it's not too much to ask for a percentage of equity.  Use as many decimal places as you'd like.  This will help us keep an interest in you.</p></br>
-                <br>  
-                <span>Q:</span><p> What if I don't have a company yet?</p></br>
-                <span>A:</span><p> We'd like you to have one eventually and would like to share in building it with you.</p></br>
-                <br>  
-                <span>Q:</span><p> What else do I get besides $100?</p></br>
-                <span>A:</span><p> Our team has massive domain knowledge when it comes to startups, funding and innovation.  We will help in any way we can to make the business a success.</p></br>
-                <br>  
-                <span>Q:</span><p> What's your email address?</p></br>
-                <span>A:</span><p> <a href="mailto:hello@starseed.fund">hello@starseed.fund</a></p></br>
-        </div>
-    </form>
-
-    <footer class="footer">
-        <div class="footer-content">
-        <span class="copyright">
-            <a href="https://twitter.com/StarseedFund">
-                @StarseedFund
-            </a>
-            <br>
-            © 2021
-        </span>
-        </div>
-     </footer>
-
-    </div>
-</body>
-</html>
+</form>
+{% endblock %}

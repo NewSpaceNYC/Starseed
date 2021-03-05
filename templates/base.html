@@ -1,121 +1,43 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.0.6/material.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'style.css' %}" rel="stylesheet">
-    <style>
-    body {
-        bgcolor: black;
-        background-size:auto 500%;                   /* <------ */
-        background-repeat: no-repeat;
-        background-position: center center;            /* optionally, center the image */
-    }
-    
-    video#bgvid {
-    position: fixed; right: 0; bottom: 0;
-    min-width: 100%; min-height: 100%;
-    width: auto; height: auto; z-index: -100;
-    background: url({% static 'purple-nebula.jpg' %}) no-repeat;
-    background-size: cover;
-    }
-    </style>
-
-
-    {# Load CSS and JavaScript #}
-
-    <title>{% block title %} {% endblock %}</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Starseed - pico funding</title>
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form-basic.css' %}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+</head>
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+<body>
+    <header>
+        <h1><a href="/">Starseed - pico innovation funding.</a></h1>
+        <a href="/about">About Us / FAQ</a>
+    </header>
 
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
-
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
-
-    <link rel="shortcut icon" href="images/favicon.png">
-
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
-    <link rel="canonical" href="http://www.example.com/">
-    -->
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <style>
-    #view-source {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 40px;
-      margin-bottom: 40px;
-      z-index: 900;
-    }
-    </style>
-  </head>
-  <body>
-    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
-      <header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
-        <div class="mdl-layout__header-row">
-          <a href="{{ HTTP_HOST }}/">
-          <span class="mdl-layout-title">
-              <strong><i class="material-icons">brightness_high</i> Starseed</strong>
-              - Equity for Bounties.
-          </span>
-          </a>
-          <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search">
-              <label class="mdl-textfield__label" for="search">Enter your query...</label>
-            </div>
-          </div>
-        </div>
-      </header>
-      <div class="demo-ribbon"></div>
-      <main class="demo-main mdl-layout__content">
-        <div class="demo-container mdl-grid">
-          <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-          <div class="demo-content content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
-            {% block content %} {% endblock %}
-          </div>
-        </div>
-        <footer class="demo-footer mdl-mini-footer">
-          <div class="mdl-mini-footer--left-section">
-            <ul class="mdl-mini-footer--link-list">
-              <li><a href="#">Help</a></li>
-              <li><a href="#">Privacy and Terms</a></li>
-              <li><a href="#">User Agreement</a></li>
-            </ul>
-          </div>
-        </footer>
-      </main>
+    <div class="main-header">
+        <h2>{% block header %}Starseed was created to empower ideas, businesses or projects to take the next step.{% endblock %}</h2>
+        {% block sub_header %}{% endblock %}
     </div>
-    <a href="https://github.com/google/material-design-lite/blob/master/templates/article/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js"></script>
-  </body>
+    <div class="main-content">
+        {% block content %}
+        {% endblock %}
+
+        <footer class="footer">
+            <div class="footer-content">
+            <span class="copyright">
+                <a href="https://twitter.com/StarseedFund">
+                    @StarseedFund
+                </a>
+                <br>
+                © 2021
+            </span>
+            </div>
+        </footer>
+    </div>
+</body>
 </html>

@@ -1,32 +1,8 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Starseed - pico innovation funding</title>
-    <base href="/">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}" >
-    <link rel="stylesheet" type="text/css" href="{% static 'css/form-basic.css' %}">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
-</head>
-
-<body>
-    <header>
-        <h1><a href="/">Starseed - pico innovation funding.</a></h1>
-        <a href="/about">About Us / FAQ</a>
-    </header>
-
-    <div class="main-header">
-        <h2>Starseed provides pico funding of $100 to innovative ideas or businesses. We then help you make them
-            successful!
-        </h2>
-        <p>In exchange for the $100, starseed asks for some equity.</p>
-    </div>
-
-    <div class="main-content">
+{% block header %}Starseed provides funding of $100 to ideas, businesses, projects, whatever. We then help you make them successful!{% endblock %}
+{% block sub_header %}<p>In exchange for the $100, starseed asks for some equity.</p>{% endblock %}
+{% block content %}
         <form class="form-basic" method="post" action="/">
             {% csrf_token %}
 
@@ -85,19 +61,4 @@
 
             </div>
         </form>
-    
-        <footer class="footer">
-        <div class="footer-content">
-        <span class="copyright">
-            <a href="https://twitter.com/StarseedFund">
-                @StarseedFund
-            </a>
-            <br>
-            © 2021
-        </span>
-        </div>
-        </footer>
-    
-    </div>
-</body>
-</html>
+{% endblock %}
