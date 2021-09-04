@@ -18,6 +18,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='project',
             name='equity',
-            field=models.IntegerField(default='', max_length=255),
+            field=models.IntegerField(default=0),
         ),
     ]
