@@ -6,17 +6,12 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    def blank_to_zero(apps, schema_editor):
-        for obj in Project.objects.all():
-            obj.equity = 0
-            obj.save()
-
     dependencies = [
         ('starseed', '0005_auto_20210302_1836'),
     ]
 
     operations = [
-        migrations.RunPython(blank_to_zero),
+        migrations.RunSQL('update starseed_project set equity=0;'),
 
         migrations.AddField(
             model_name='project',
