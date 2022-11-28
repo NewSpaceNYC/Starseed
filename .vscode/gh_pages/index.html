@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Starseed - pico funding</title>
+  <base href="/">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/form-basic.css' %}">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+</head>
+
+<body>
+  <header>
+    <h1><a href="/">Starseed - pico funding</a></h1>
+    <a href="/about">About Us / FAQ</a>
+  </header>
+
+  <div class="main-header">
+    <h2>Starseed provides funding of $100 to ideas, businesses, projects, etc... We then help you make them successful!</h2>
+    <p>In exchange for the $100, starseed asks for some equity.</p>
+  </div>
+  <div class="main-content">
+    <form class="form-basic" method="post" action="/">
+        {% csrf_token %}
+
+        <div class="form-title-row">
+            <h1>Apply for $100 funding</h1></br>
+            <small style="color:grey;">all fields are required</small>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>Your full name</span>
+                {{form.person}}
+            </label>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>Your email</span>
+                {{form.email}}
+            </label>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>Name of idea or business</span>
+                {{form.name}}
+            </label>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>Describe your idea or business</span>
+                {{form.description}}
+            </label>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>What % of equity are you offering?</span>
+                {{form.equity}}
+            </label>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>Friend email #1</span>
+                {{form.email1}}
+            </label>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>Friend email #2</span>
+                {{form.email2}}
+            </label>
+        </div>
+        <div class="form-row" style="text-align: center;">
+            {{form.captcha}}{{form.errors.captcha}}
+        </div>
+        <div class="form-row">
+            
+            <button type="submit">Apply for Funding</button>
+
+        </div>
+    </form>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <span class="copyright">
+          <a href="https://twitter.com/StarseedFund">
+            @StarseedFund
+          </a>
+          <br>
+          © 2021
+        </span>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
